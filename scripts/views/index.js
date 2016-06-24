@@ -35,8 +35,7 @@ var app = {
      * @param data
      */
     loadConfigCallback: function(data) {
-        console.dir(data);
-        this.config = data;
+        this.config = data.config;
 
         app.getGistsInfo();
         app.getReposInfo();
@@ -46,7 +45,7 @@ var app = {
      *
      */
     getGistsInfo: function() {
-        github.getUserGists("jpruiz114", app.getGistsInfoCallback);
+        github.getUserGists(this.config.username, app.getGistsInfoCallback);
     },
 
     /**
@@ -61,7 +60,7 @@ var app = {
      *
      */
     getReposInfo: function() {
-        github.getUserRepos("jpruiz114", app.getReposInfoCallback);
+        github.getUserRepos(this.config.username, app.getReposInfoCallback);
     },
 
     /**
