@@ -1,51 +1,30 @@
-var github = {
-    /**
-     *
-     */
-    userGistsEndpoint: "https://api.github.com/users/{USERNAME}/gists",
+let github = {
+    userGistsEndpoint: 'https://api.github.com/users/{USERNAME}/gists',
 
-    /**
-     *
-     */
-    userReposEndpoint: "https://api.github.com/users/{USERNAME}/repos",
+    userReposEndpoint: 'https://api.github.com/users/{USERNAME}/repos?per_page=100',
 
-    /**
-     *
-     * @param username
-     * @returns {string}
-     */
-    getUserGistsEndpoint: function(username) {
-        var endpointURL = github.userGistsEndpoint;
+    getUserGistsEndpoint: function (username) {
+        let endpointURL = github.userGistsEndpoint;
 
-        var result = endpointURL.replace("{USERNAME}", username);
+        let result = endpointURL.replace('{USERNAME}', username);
 
         return result;
     },
 
-    /**
-     *
-     * @param username
-     * @returns {string}
-     */
-    getUserReposEndpoint: function(username) {
-        var endpointURL = github.userReposEndpoint;
+    getUserReposEndpoint: function (username) {
+        let endpointURL = github.userReposEndpoint;
 
-        var result = endpointURL.replace("{USERNAME}", username);
+        let result = endpointURL.replace('{USERNAME}', username);
 
         return result;
     },
 
-    /**
-     *
-     * @param username
-     * @param callback
-     */
-    getUserGists: function(username, callback) {
+    getUserGists: function (username, callback) {
         $.ajax({
-            dataType: "json",
-            type: "GET",
+            dataType: 'json',
+            type: 'GET',
             url: github.getUserGistsEndpoint(username),
-            success: function(data) {
+            success: function (data) {
                 if (callback) {
                     callback(data);
                 } else {
@@ -55,17 +34,12 @@ var github = {
         });
     },
 
-    /**
-     *
-     * @param username
-     * @param callback
-     */
-    getUserRepos: function(username, callback) {
+    getUserRepos: function (username, callback) {
         $.ajax({
-            dataType: "json",
-            type: "GET",
+            dataType: 'json',
+            type: 'GET',
             url: github.getUserReposEndpoint(username),
-            success: function(data) {
+            success: function (data) {
                 if (callback) {
                     callback(data);
                 } else {
