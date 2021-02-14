@@ -2,6 +2,7 @@
     let toggle = document.getElementById('menu-toggle');
     let menu = document.getElementById('menu');
     let close = document.getElementById('menu-close');
+    let form = document.getElementById('contact');
 
     toggle.addEventListener('click', function (e) {
         if (menu.classList.contains('open')) {
@@ -13,6 +14,16 @@
 
     close.addEventListener('click', function (e) {
         menu.classList.remove('open');
+    });
+
+    form.addEventListener('submit', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+
+        console.log('form submit');
+
+        return false;
     });
 
     // Close menu after click on smaller screens
@@ -76,20 +87,4 @@
         resizeDuration: 200,
         wrapAround: true
     });
-
-    function processForm (e) {
-        if (e.preventDefault) e.preventDefault();
-
-        console.log('form submit');
-
-        return false;
-    }
-
-    let form = document.getElementById('contact');
-
-    if (form.attachEvent) {
-        form.attachEvent('submit', processForm);
-    } else {
-        form.addEventListener('submit', processForm);
-    }
 })(jQuery);
