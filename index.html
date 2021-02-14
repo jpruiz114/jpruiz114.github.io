@@ -501,16 +501,16 @@
 
     function submitForm () {
         let templateParams = {
-            from_name: $("#name").val(),
-            reply_to: $("#email").val(),
-            subject: $("#subject").val(),
-            message: $("#message").val(),
+            from_name: $('#name').val(),
+            reply_to: $('#email').val(),
+            site_subject: $('#subject').val(),
+            message: $('#message').val()
         };
 
         emailjs.send('service_vc06puj', 'template_l4g73mc', templateParams)
-            .then(function(response) {
+            .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
-            }, function(error) {
+            }, function (error) {
                 console.log('FAILED...', error);
             });
     }
