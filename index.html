@@ -451,7 +451,6 @@
 <script src="assets/js/lightbox.js"></script>
 <script src="assets/js/custom.js"></script>
 <script>
-    //according to loftblog tut
     $('.main-menu li:first').addClass('active');
 
     let showSection = function showSection (section, isAnimate) {
@@ -501,8 +500,19 @@
     });
 
     function submitForm () {
-        console.log('submitForm');
+        let templateParams = {
+            from_name: $("#name").val(),
+            reply_to: $("#email").val(),
+            subject: $("#subject").val(),
+            message: $("#message").val(),
+        };
 
+        emailjs.send('service_vc06puj', 'template_l4g73mc', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
     }
 </script>
 </body>
