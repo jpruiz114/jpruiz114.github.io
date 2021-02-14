@@ -1,7 +1,7 @@
 (function ($) {
-    var toggle = document.getElementById('menu-toggle');
-    var menu = document.getElementById('menu');
-    var close = document.getElementById('menu-close');
+    let toggle = document.getElementById('menu-toggle');
+    let menu = document.getElementById('menu');
+    let close = document.getElementById('menu-close');
 
     toggle.addEventListener('click', function (e) {
         if (menu.classList.contains('open')) {
@@ -49,14 +49,16 @@
     });
 
     $('.isotope-wrapper').each(function () {
-        var $isotope = $('.isotope-box', this);
-        var $filterCheckboxes = $('input[type="radio"]', this);
+        let $isotope = $('.isotope-box', this);
+        let $filterCheckboxes = $('input[type="radio"]', this);
 
-        var filter = function () {
-            var type = $filterCheckboxes.filter(':checked').data('type') || '*';
+        let filter = function () {
+            let type = $filterCheckboxes.filter(':checked').data('type') || '*';
+
             if (type !== '*') {
                 type = '[data-type="' + type + '"]';
             }
+
             $isotope.isotope({ filter: type });
         };
 
@@ -66,6 +68,7 @@
         });
 
         $(this).on('change', filter);
+
         filter();
     });
 
@@ -73,4 +76,20 @@
         resizeDuration: 200,
         wrapAround: true
     });
+
+    function processForm (e) {
+        if (e.preventDefault) e.preventDefault();
+
+        console.log('form submit');
+
+        return false;
+    }
+
+    let form = document.getElementById('contact');
+
+    if (form.attachEvent) {
+        form.attachEvent('submit', processForm);
+    } else {
+        form.addEventListener('submit', processForm);
+    }
 })(jQuery);
