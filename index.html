@@ -375,7 +375,7 @@
             <div class="row">
                 <div class="right-content">
                     <div class="container">
-                        <form id="contact">
+                        <form id="contact" onsubmit="submitForm(); return false;">
                             <div class="row">
                                 <div class="col-md-6">
                                     <fieldset>
@@ -454,8 +454,8 @@
     //according to loftblog tut
     $('.main-menu li:first').addClass('active');
 
-    var showSection = function showSection (section, isAnimate) {
-        var direction = section.replace(/#/, ''),
+    let showSection = function showSection (section, isAnimate) {
+        let direction = section.replace(/#/, ''),
             reqSection = $('.section').filter(
                 '[data-section="' + direction + '"]'
             ),
@@ -473,14 +473,14 @@
         }
     };
 
-    var checkSection = function checkSection () {
+    let checkSection = function checkSection () {
         $('.section').each(function () {
-            var $this = $(this),
+            let $this = $(this),
                 topEdge = $this.offset().top - 80,
                 bottomEdge = topEdge + $this.height(),
                 wScroll = $(window).scrollTop();
             if (topEdge < wScroll && bottomEdge > wScroll) {
-                var currentId = $this.data('section'),
+                let currentId = $this.data('section'),
                     reqLink = $('a').filter('[href*=\\#' + currentId + ']');
                 reqLink
                     .closest('li')
@@ -499,6 +499,11 @@
     $(window).scroll(function () {
         checkSection();
     });
+
+    function submitForm () {
+        console.log('submitForm');
+
+    }
 </script>
 </body>
 </html>
