@@ -1,8 +1,0 @@
-# IDEA config files
-.idea/
-
-# nodejs modules
-node_modules
-
-# scss compilation cache
-.sass-cache
