@@ -2,27 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <link
-            href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
-            rel="stylesheet"
-    />
 
     <title>Jean Paul Ruiz - Software Engineer, Full-Stack Developer</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"/>
 
-    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
+
     <link rel="stylesheet" href="assets/css/fontawesome.css"/>
-    <link rel="stylesheet" href="assets/css/templatemo-style.css"/>
-    <link rel="stylesheet" href="assets/css/owl.css"/>
     <link rel="stylesheet" href="assets/css/lightbox.css"/>
+    <link rel="stylesheet" href="assets/css/owl.css"/>
+    <link rel="stylesheet" href="assets/css/templatemo-style.css"/>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -498,11 +495,23 @@
     });
 
     function submitForm () {
+        toastr.clear();
+        toastr.options.newestOnTop = false;
+
         emailjs.send('service_vc06puj', 'template_x2havzz', {
             from_name: $('#name').val(),
             reply_to: $('#email').val(),
             message_subject: $('#subject').val(),
             message: $('#message').val()
+        }).then(function (response) {
+            $('#name').val('');
+            $('#email').val('');
+            $('#subject').val('');
+            $('#message').val('');
+
+            toastr.success('Your message has been sent!');
+        }, function (error) {
+            toastr.warning(error);
         });
     }
 </script>
