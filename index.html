@@ -18,9 +18,6 @@
     <link rel="stylesheet" href="assets/css/owl.css"/>
     <link rel="stylesheet" href="assets/css/templatemo-style.css"/>
 
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
-
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -495,9 +492,6 @@
     });
 
     function submitForm () {
-        toastr.clear();
-        toastr.options.newestOnTop = false;
-
         emailjs.send('service_vc06puj', 'template_x2havzz', {
             from_name: $('#name').val(),
             reply_to: $('#email').val(),
@@ -509,9 +503,9 @@
             $('#subject').val('');
             $('#message').val('');
 
-            toastr.success('Your message has been sent!');
+            alert('Your message has been sent!');
         }, function (error) {
-            toastr.warning(error);
+            alert(error);
         });
     }
 </script>
