@@ -17,10 +17,17 @@
 
     // Close menu after click on smaller screens
     $(window).on('resize', function () {
-        if ($(window).width() < 846) {
+        if ($(window).width() < 481) {
             $('.main-menu a').on('click', function () {
                 menu.classList.remove('open');
             });
+        }
+    });
+    
+    // Handle menu toggle on mobile
+    $(document).on('click', '.main-menu a', function() {
+        if ($(window).width() < 481) {
+            menu.classList.remove('open');
         }
     });
 

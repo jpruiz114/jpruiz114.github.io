@@ -54,7 +54,10 @@ h4 {
 
 img {
     width: 100%;
+    height: auto;
     overflow: hidden;
+    max-width: 100%;
+    display: block;
 }
 
 ul {
@@ -97,6 +100,10 @@ html {
 
 .container {
     margin: 0 auto;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
 }
 
 .main-nav {
@@ -238,6 +245,7 @@ html {
   width: 20%;
   will-change: transform;
   z-index: 9999 !important;
+  transition: all 0.3s ease;
 }
 
 .menu-toggle {
@@ -292,6 +300,8 @@ html {
     min-height: 100vh;
     padding-bottom: 80px;
     border-bottom: 3px solid rgba(250, 250, 250, 0.25);
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .section-heading {
@@ -402,6 +412,8 @@ button:hover {
     padding: 50px;
     background-color: rgba(250, 250, 250, 0.1);
     transition: all 0.5s;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .service-item h4 {
@@ -527,6 +539,9 @@ section.my-work .section-heading {
     border-bottom: 2px solid rgba(250,250,250,0.1);
     padding-bottom: 30px;
     margin-bottom: 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .isotope-item img {
@@ -647,6 +662,7 @@ section.contact-me {
     line-height: 40px;
     width: 100%;
     padding-left: 15px;
+    box-sizing: border-box;
 }
 
 #contact input:focus {
@@ -666,6 +682,8 @@ section.contact-me {
     line-height: 40px;
     width: 100%;
     padding-left: 15px;
+    box-sizing: border-box;
+    resize: vertical;
 }
 
 #contact textarea:focus {
@@ -677,20 +695,63 @@ section.contact-me {
     text-align: center;
 }
 
-@media screen and (max-width: 1680px) {
-    .menu {
-        left: 5%;
-    }
+/* Enhanced Responsive Design - Comprehensive Media Queries */
 
+/* Large Desktop Screens (1920px and up) */
+@media screen and (min-width: 1920px) {
+    .menu {
+        left: 8%;
+        width: 18%;
+    }
+    
     .section {
-        color: #fff;
-        width: 65%;
-        right: 5%;
-        left: 30%;
+        width: 58%;
+        right: 8%;
+        left: 26%;
     }
 }
 
-@media screen and (max-width: 1680px) and (min-width: 846px) { 
+/* Standard Desktop Screens (1680px - 1919px) */
+@media screen and (max-width: 1919px) and (min-width: 1681px) {
+    .menu {
+        left: 5%;
+        width: 20%;
+    }
+    
+    .section {
+        width: 60%;
+        right: 5%;
+        left: 25%;
+    }
+}
+
+/* Medium Desktop Screens (1440px - 1680px) */
+@media screen and (max-width: 1680px) and (min-width: 1441px) {
+    .menu {
+        left: 3%;
+        width: 22%;
+    }
+    
+    .section {
+        width: 62%;
+        right: 3%;
+        left: 25%;
+    }
+}
+
+/* Small Desktop Screens (1280px - 1440px) */
+@media screen and (max-width: 1440px) and (min-width: 1281px) {
+    .menu {
+        left: 2%;
+        width: 24%;
+    }
+    
+    .section {
+        width: 64%;
+        right: 2%;
+        left: 26%;
+    }
+    
     .menu .social-network ul li a {
         width: 36px;
         height: 36px;
@@ -698,19 +759,23 @@ section.contact-me {
     }
 
     .menu .social-network ul li {
-        margin: 0;
-    }
-
-    .menu .image {
-        margin-top: 60px;
+        margin: 0 2px;
     }
 }
 
-@media screen and (max-width: 1280px) {
+/* Tablet Landscape (1024px - 1280px) */
+@media screen and (max-width: 1280px) and (min-width: 1025px) {
     .menu {
         left: 0%;
+        width: 25%;
     }
-
+    
+    .section {
+        width: 70%;
+        right: 0%;
+        left: 25%;
+    }
+    
     .right-image-post h4,
     .left-image-post h4 {
         margin-top: 0px;
@@ -725,33 +790,82 @@ section.contact-me {
     .left-image-post .white-button {
         margin-top: 25px;
     }
-
-}
-
-.menu .container {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-@media screen and (max-width: 1280px) and (min-width: 846px) {
-    .menu {
-        width: 25%;
+    
+    .isotope-item {
+        width: 45%;
+        margin: 2.5%;
     }
 }
 
-#menu-toggle,
-#menu-close {
-    display: none;
-}  
+/* Tablet Portrait (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .menu {
+        left: 0%;
+        width: 30%;
+    }
+    
+    .section {
+        width: 70%;
+        right: 0%;
+        left: 30%;
+    }
+    
+    .isotope-item {
+        width: 45%;
+        margin: 2.5%;
+    }
+    
+    .service-item {
+        padding: 30px;
+    }
+    
+    .section-heading {
+        padding: 60px 30px;
+    }
+}
 
-@media screen and (max-width: 845px) {        
+/* Mobile Landscape (481px - 768px) */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .menu {
+        left: 0%;
+        width: 35%;
+    }
+    
+    .section {
+        width: 65%;
+        right: 0%;
+        left: 35%;
+    }
+    
+    .isotope-item {
+        width: 100%;
+        margin: 0 0 30px 0;
+    }
+    
+    .service-item {
+        padding: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .section-heading {
+        padding: 50px 20px;
+    }
+    
+    .section-heading h2 {
+        font-size: 28px;
+    }
+}
+
+/* Mobile Portrait (320px - 480px) */
+@media screen and (max-width: 480px) {
     #menu-toggle,
     #menu-close {
         display: inline-block;
     }    
 
     .menu {        
-        width: 320px;
+        width: 280px;
+        left: 0;
         -webkit-transform: translateX(-100%) !important;
         transform: translateX(-100%) !important;
         transition: -webkit-transform 233ms cubic-bezier(0, 0, 0.21, 1);
@@ -760,16 +874,24 @@ section.contact-me {
     }
 
     .menu .image {
-        margin-top: 40px;        
+        margin-top: 30px;        
     }
 
     .menu .image img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     .menu .author-content {
-        margin: 20px 0px 40px 0px;
+        margin: 15px 0px 30px 0px;
+    }
+    
+    .menu .author-content h4 {
+        font-size: 20px;
+    }
+    
+    .menu .author-content span {
+        font-size: 12px;
     }
 
     .menu .container {
@@ -780,32 +902,98 @@ section.contact-me {
     .menu.open {
         display: inline-block;
         -webkit-transform: translateX(0) !important;
-                transform: translateX(0) !important;
+        transform: translateX(0) !important;
     }
 
     .responsive-nav {
         display: inline-block;
     }
+    
     .section {
-        width: 94%;
-        right: 3%;
-        left: 3%;
+        width: 100%;
+        right: 0;
+        left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
     }
+    
     .isotope-item {
-        width: 94%;
-        margin: 3%;
-    }
-    .left-image-post img {
-        margin-bottom: 30px;
-    }
-    .right-image-post img {
-        margin-top: 30px;
-    }
-    .isotope-item {
+        width: 100%;
+        margin: 0 0 20px 0;
         border-bottom: none;
         text-align: center;
     }
+    
+    .left-image-post img,
+    .right-image-post img {
+        margin-bottom: 20px;
+    }
+    
     .isotope-toolbar {
         margin-bottom: 20px;
+    }
+    
+    .service-item {
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .section-heading {
+        padding: 40px 15px;
+    }
+    
+    .section-heading h2 {
+        font-size: 24px;
+    }
+    
+    .section-heading span {
+        font-size: 14px;
+    }
+    
+    .white-button a {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+    
+    button {
+        padding: 8px 15px;
+        font-size: 11px;
+    }
+}
+
+/* Hide menu toggle on larger screens */
+@media screen and (min-width: 481px) {
+    #menu-toggle,
+    #menu-close {
+        display: none;
+    }
+}
+
+/* Container padding adjustments */
+.menu .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Additional responsive improvements for better text readability */
+@media screen and (max-width: 1024px) {
+    p {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    
+    h4 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    h4 {
+        font-size: 22px;
     }
 }
