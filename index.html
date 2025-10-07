@@ -24,6 +24,25 @@
             emailjs.init('uhZt1g2VIGuAWTP7m');
         })();
     </script>
+    
+    <!-- reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- reCAPTCHA Styling -->
+    <style>
+        .g-recaptcha {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .g-recaptcha {
+                transform: scale(0.8);
+                transform-origin: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -344,6 +363,11 @@
                                 </div>
                                 <div class="col-md-12">
                                     <fieldset>
+                                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <fieldset>
                                         <button type="submit" id="form-submit" class="button">
                                             Send Message
                                         </button>
@@ -415,6 +439,13 @@
     });
 
     function submitForm () {
+        // Check if reCAPTCHA is completed
+        var recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse.length === 0) {
+            alert('Please complete the reCAPTCHA verification.');
+            return false;
+        }
+
         emailjs.send('service_vc06puj', 'template_x2havzz', {
             from_name: $('#name').val(),
             reply_to: $('#email').val(),
@@ -425,10 +456,15 @@
             $('#email').val('');
             $('#subject').val('');
             $('#message').val('');
+            
+            // Reset reCAPTCHA
+            grecaptcha.reset();
 
             alert('Your message has been sent!');
         }, function (error) {
-            alert(error);
+            alert('Error sending message: ' + error);
+            // Reset reCAPTCHA on error
+            grecaptcha.reset();
         });
     }
 </script>
