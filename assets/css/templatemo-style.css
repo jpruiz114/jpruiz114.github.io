@@ -9,6 +9,13 @@ https://templatemo.com/tm-531-reflux
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 body {
     font-family: 'Lato', sans-serif;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
 }
 
 #page-wraper {
@@ -43,6 +50,15 @@ input,
 select,
 textarea {
     outline: none;
+    font: inherit;
+    margin: 0;
+}
+
+fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 a,
@@ -60,21 +76,34 @@ textarea:focus-visible,
 }
 
 p {
+    margin-top: 0;
+    margin-bottom: 1rem;
     font-size: 16px;
     line-height: 24px;
     color: #fff;
 }
 
 h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
     font-size: 26px;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.25px;
 }
 
+h2,
+h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
 img {
     width: 100%;
     overflow: hidden;
+    vertical-align: middle;
+    border-style: none;
 }
 
 .icon {
@@ -126,8 +155,30 @@ html {
     clear: both;
 }
 
-.container {
+.content-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
     margin: 0 auto;
+}
+
+.layout-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.layout-half,
+.layout-third,
+.layout-full {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.right-content {
+    width: 100%;
 }
 
 .main-nav {
@@ -336,6 +387,8 @@ html {
 }
 
 .section-heading h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
     font-size: 32px;
     font-weight: 700;
     color: #fff;
@@ -359,6 +412,9 @@ html {
 /* Buttons */
 
 button {
+    font-family: inherit;
+    line-height: inherit;
+    margin: 0;
     display: inline-block;
     padding: 10px 20px;
     background-color: #fff;
@@ -405,7 +461,7 @@ button:hover {
 
 /* Services */
 
-.my-services .col-md-6 {
+.my-services .layout-half {
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -501,6 +557,7 @@ section.my-work .section-heading {
 
 .highlight-card h3 {
     font-size: 21px;
+    font-weight: 500;
     margin-bottom: 18px;
 }
 
@@ -655,7 +712,7 @@ section.contact-me {
 
 }
 
-.menu .container {
+.menu .content-container {
     padding-left: 0;
     padding-right: 0;
 }
@@ -699,7 +756,7 @@ section.contact-me {
         margin: 20px 0px 40px 0px;
     }
 
-    .menu .container {
+    .menu .content-container {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -726,5 +783,39 @@ section.contact-me {
     }
     .highlight-card {
         padding: 30px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .content-container {
+        max-width: 540px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .content-container {
+        max-width: 720px;
+    }
+
+    .layout-half {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .layout-third {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .content-container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content-container {
+        max-width: 1140px;
     }
 }

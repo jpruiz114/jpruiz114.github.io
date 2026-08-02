@@ -1,0 +1,170 @@
+{
+  "capturedAt": "2026-08-02T02:38:03.342Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "viewports": {
+    "phone-390x844": {
+      "bootstrapLinks": 0,
+      "legacyGridClasses": 0,
+      "localRequests": [
+        "",
+        "assets/css/templatemo-style.css",
+        "assets/images/author-image.webp",
+        "assets/js/custom.js?v=4",
+        "assets/images/page-bg.jpg",
+        "assets/images/first-white-icon.png",
+        "assets/images/second-white-icon.png",
+        "assets/images/third-white-icon.png",
+        "assets/images/fourth-white-icon.png",
+        "assets/images/left-image.jpg",
+        "assets/images/right-image.jpg"
+      ],
+      "failures": [],
+      "expectsColumns": false,
+      "expectedContainerMaxWidth": "none",
+      "computed": {
+        "containerMaxWidth": "none",
+        "fieldsetBorder": "0px",
+        "fieldsetPadding": "0px",
+        "inputMargin": "0px",
+        "inputFontFamily": "Lato, sans-serif",
+        "bodyFontFamily": "Lato, sans-serif",
+        "headingMarginTop": "0px",
+        "headingFontWeight": "500",
+        "paragraphMarginTop": "0px"
+      },
+      "layout": {
+        "aboutColumns": false,
+        "capabilityColumns": false,
+        "highlightColumns": false,
+        "formColumns": false,
+        "aboutCount": 4,
+        "capabilityCount": 4,
+        "highlightCount": 3,
+        "horizontalOverflow": false
+      }
+    },
+    "tablet-768x1024": {
+      "bootstrapLinks": 0,
+      "legacyGridClasses": 0,
+      "localRequests": [
+        "",
+        "assets/css/templatemo-style.css",
+        "assets/images/author-image.webp",
+        "assets/js/custom.js?v=4",
+        "assets/images/page-bg.jpg",
+        "assets/images/first-white-icon.png",
+        "assets/images/second-white-icon.png",
+        "assets/images/third-white-icon.png",
+        "assets/images/fourth-white-icon.png",
+        "assets/images/left-image.jpg",
+        "assets/images/right-image.jpg"
+      ],
+      "failures": [],
+      "expectsColumns": true,
+      "expectedContainerMaxWidth": "720px",
+      "computed": {
+        "containerMaxWidth": "720px",
+        "fieldsetBorder": "0px",
+        "fieldsetPadding": "0px",
+        "inputMargin": "0px",
+        "inputFontFamily": "Lato, sans-serif",
+        "bodyFontFamily": "Lato, sans-serif",
+        "headingMarginTop": "0px",
+        "headingFontWeight": "500",
+        "paragraphMarginTop": "0px"
+      },
+      "layout": {
+        "aboutColumns": true,
+        "capabilityColumns": true,
+        "highlightColumns": true,
+        "formColumns": true,
+        "aboutCount": 4,
+        "capabilityCount": 4,
+        "highlightCount": 3,
+        "horizontalOverflow": false
+      }
+    },
+    "laptop-1440x1000": {
+      "bootstrapLinks": 0,
+      "legacyGridClasses": 0,
+      "localRequests": [
+        "",
+        "assets/css/templatemo-style.css",
+        "assets/images/author-image.webp",
+        "assets/js/custom.js?v=4",
+        "assets/images/page-bg.jpg",
+        "assets/images/first-white-icon.png",
+        "assets/images/second-white-icon.png",
+        "assets/images/third-white-icon.png",
+        "assets/images/fourth-white-icon.png",
+        "assets/images/left-image.jpg",
+        "assets/images/right-image.jpg"
+      ],
+      "failures": [],
+      "expectsColumns": true,
+      "expectedContainerMaxWidth": "1140px",
+      "computed": {
+        "containerMaxWidth": "1140px",
+        "fieldsetBorder": "0px",
+        "fieldsetPadding": "0px",
+        "inputMargin": "0px",
+        "inputFontFamily": "Lato, sans-serif",
+        "bodyFontFamily": "Lato, sans-serif",
+        "headingMarginTop": "0px",
+        "headingFontWeight": "500",
+        "paragraphMarginTop": "0px"
+      },
+      "layout": {
+        "aboutColumns": true,
+        "capabilityColumns": true,
+        "highlightColumns": true,
+        "formColumns": true,
+        "aboutCount": 4,
+        "capabilityCount": 4,
+        "highlightCount": 3,
+        "horizontalOverflow": false
+      }
+    },
+    "wide-1920x1080": {
+      "bootstrapLinks": 0,
+      "legacyGridClasses": 0,
+      "localRequests": [
+        "",
+        "assets/css/templatemo-style.css",
+        "assets/images/author-image.webp",
+        "assets/js/custom.js?v=4",
+        "assets/images/page-bg.jpg",
+        "assets/images/first-white-icon.png",
+        "assets/images/second-white-icon.png",
+        "assets/images/third-white-icon.png",
+        "assets/images/fourth-white-icon.png",
+        "assets/images/left-image.jpg",
+        "assets/images/right-image.jpg"
+      ],
+      "failures": [],
+      "expectsColumns": true,
+      "expectedContainerMaxWidth": "1140px",
+      "computed": {
+        "containerMaxWidth": "1140px",
+        "fieldsetBorder": "0px",
+        "fieldsetPadding": "0px",
+        "inputMargin": "0px",
+        "inputFontFamily": "Lato, sans-serif",
+        "bodyFontFamily": "Lato, sans-serif",
+        "headingMarginTop": "0px",
+        "headingFontWeight": "500",
+        "paragraphMarginTop": "0px"
+      },
+      "layout": {
+        "aboutColumns": true,
+        "capabilityColumns": true,
+        "highlightColumns": true,
+        "formColumns": true,
+        "aboutCount": 4,
+        "capabilityCount": 4,
+        "highlightCount": 3,
+        "horizontalOverflow": false
+      }
+    }
+  }
+}
