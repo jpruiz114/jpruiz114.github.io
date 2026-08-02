@@ -13,6 +13,7 @@ const browser = await chromium.launch({ headless: true });
 const results = { capturedAt: new Date().toISOString(), baseURL, viewports: {} };
 const viewports = {
     'phone-390x844': { width: 390, height: 844 },
+    'short-laptop-1440x768': { width: 1440, height: 768 },
     'laptop-1440x1000': { width: 1440, height: 1000 }
 };
 
@@ -93,6 +94,12 @@ for (const [name, viewport] of Object.entries(viewports)) {
             const box = image.getBoundingClientRect();
             return Math.abs((box.width / box.height) - (image.naturalWidth / image.naturalHeight)) < 0.01;
         });
+        const menu = document.querySelector('#menu');
+        const copyright = menu.querySelector('.copyright-text');
+        const recaptcha = document.querySelector('.g-recaptcha');
+        const recaptchaWidget = recaptcha.firstElementChild;
+        const recaptchaBox = recaptcha.getBoundingClientRect();
+        const recaptchaWidgetBox = recaptchaWidget.getBoundingClientRect();
 
         return {
             missingAnchorTargets: internalLinks
@@ -102,6 +109,10 @@ for (const [name, viewport] of Object.entries(viewports)) {
             equalServiceHeights: Math.max(...serviceHeights) === Math.min(...serviceHeights),
             imageAspectRatiosPreserved: imageAspectRatios.every(Boolean),
             horizontalOverflow: document.documentElement.scrollWidth > innerWidth,
+            sidebarFooterVisible: innerWidth < 846 || copyright.getBoundingClientRect().bottom <= menu.getBoundingClientRect().bottom,
+            recaptchaCentered: Math.abs(
+                (recaptchaWidgetBox.left - recaptchaBox.left) - (recaptchaBox.right - recaptchaWidgetBox.right)
+            ) < 1,
             headings: Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6')).map(function (heading) {
                 return { level: Number(heading.tagName.slice(1)), text: heading.textContent.trim() };
             })
@@ -145,7 +156,9 @@ const checks = Object.values(results.viewports).flatMap(function (result) {
         result.structure.headingOrderValid,
         !result.expectsEqualServiceHeights || result.structure.equalServiceHeights,
         result.structure.imageAspectRatiosPreserved,
-        !result.structure.horizontalOverflow
+        !result.structure.horizontalOverflow,
+        result.structure.sidebarFooterVisible,
+        result.structure.recaptchaCentered
     ];
 });
 

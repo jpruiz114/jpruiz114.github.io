@@ -19,14 +19,16 @@ content-polish pass.
 
 ## Automated results
 
-The reusable [browser audit](browser-audit.mjs) runs axe-core at phone and
-laptop widths. It confirms:
+The reusable [browser audit](browser-audit.mjs) runs axe-core at phone,
+short-laptop, and laptop widths. It confirms:
 
 - zero WCAG 2 A/AA and 2.1 AA violations;
 - no console errors, page errors, failed local or external requests, or HTTP errors;
 - no missing in-page link targets, skipped heading levels, or horizontal overflow;
 - preserved image aspect ratios; and
-- equal capability-card heights at multi-column widths.
+- equal capability-card heights at multi-column widths;
+- a centered reCAPTCHA widget; and
+- a fully visible desktop sidebar footer without internal scrolling.
 
 The deterministic reCAPTCHA stub renders a representative 304-by-78-pixel
 placeholder so responsive overflow checks still exercise the widget's layout.
