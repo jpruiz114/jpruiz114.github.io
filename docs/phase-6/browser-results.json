@@ -1,0 +1,158 @@
+{
+  "capturedAt": "2026-08-02T03:05:23.634Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "viewports": {
+    "phone-390x844": {
+      "expectsEqualServiceHeights": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "localFailures": [],
+      "httpErrors": [],
+      "externalFailures": [],
+      "accessibility": [],
+      "structure": {
+        "missingAnchorTargets": [],
+        "serviceHeights": [
+          436,
+          381,
+          412,
+          381
+        ],
+        "equalServiceHeights": false,
+        "imageAspectRatiosPreserved": true,
+        "horizontalOverflow": false,
+        "headings": [
+          {
+            "level": 2,
+            "text": "About Me"
+          },
+          {
+            "level": 3,
+            "text": "Software Engineering"
+          },
+          {
+            "level": 3,
+            "text": "Security-Minded Delivery"
+          },
+          {
+            "level": 2,
+            "text": "Capabilities"
+          },
+          {
+            "level": 3,
+            "text": "Application Engineering"
+          },
+          {
+            "level": 3,
+            "text": "Security & Quality"
+          },
+          {
+            "level": 3,
+            "text": "DevOps & Automation"
+          },
+          {
+            "level": 3,
+            "text": "Data & Applied ML"
+          },
+          {
+            "level": 2,
+            "text": "Focus & Highlights"
+          },
+          {
+            "level": 3,
+            "text": "Build dependable software"
+          },
+          {
+            "level": 3,
+            "text": "Improve secure delivery"
+          },
+          {
+            "level": 3,
+            "text": "Explore and teach"
+          },
+          {
+            "level": 2,
+            "text": "Contact Me"
+          }
+        ],
+        "headingOrderValid": true
+      }
+    },
+    "laptop-1440x1000": {
+      "expectsEqualServiceHeights": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "localFailures": [],
+      "httpErrors": [],
+      "externalFailures": [],
+      "accessibility": [],
+      "structure": {
+        "missingAnchorTargets": [],
+        "serviceHeights": [
+          357,
+          357,
+          357,
+          357
+        ],
+        "equalServiceHeights": true,
+        "imageAspectRatiosPreserved": true,
+        "horizontalOverflow": false,
+        "headings": [
+          {
+            "level": 2,
+            "text": "About Me"
+          },
+          {
+            "level": 3,
+            "text": "Software Engineering"
+          },
+          {
+            "level": 3,
+            "text": "Security-Minded Delivery"
+          },
+          {
+            "level": 2,
+            "text": "Capabilities"
+          },
+          {
+            "level": 3,
+            "text": "Application Engineering"
+          },
+          {
+            "level": 3,
+            "text": "Security & Quality"
+          },
+          {
+            "level": 3,
+            "text": "DevOps & Automation"
+          },
+          {
+            "level": 3,
+            "text": "Data & Applied ML"
+          },
+          {
+            "level": 2,
+            "text": "Focus & Highlights"
+          },
+          {
+            "level": 3,
+            "text": "Build dependable software"
+          },
+          {
+            "level": 3,
+            "text": "Improve secure delivery"
+          },
+          {
+            "level": 3,
+            "text": "Explore and teach"
+          },
+          {
+            "level": 2,
+            "text": "Contact Me"
+          }
+        ],
+        "headingOrderValid": true
+      }
+    }
+  }
+}

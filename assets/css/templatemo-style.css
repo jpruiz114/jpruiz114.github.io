@@ -6,7 +6,6 @@ https://templatemo.com/tm-531-reflux
 
 */
 
-@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
@@ -19,7 +18,7 @@ body {
 }
 
 #page-wraper {
-    background: url(../images/page-bg.jpg) no-repeat center center fixed;
+    background: url(../images/page-bg.webp) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -83,15 +82,6 @@ p {
     color: #fff;
 }
 
-h4 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 26px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.25px;
-}
-
 h2,
 h3 {
     margin-top: 0;
@@ -101,6 +91,7 @@ h3 {
 
 img {
     width: 100%;
+    height: auto;
     overflow: hidden;
     vertical-align: middle;
     border-style: none;
@@ -229,8 +220,18 @@ html {
     margin: 40px 0px 60px 0px;
 }
 
-.menu .author-content h4 {
+.menu .author-content .author-name,
+.right-image-post h3,
+.left-image-post h3,
+.service-item h3 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+}
+
+.menu .author-content .author-name {
     margin-bottom: 0px;
+    line-height: 1.2;
 }
 
 .menu .author-content span {
@@ -449,9 +450,10 @@ button:hover {
     border-radius: 5px;
 }
 
-.right-image-post h4,
-.left-image-post h4 {
+.right-image-post h3,
+.left-image-post h3 {
     margin-top: 30px;
+    color: #fff;
 }
 
 .right-image-post p,
@@ -462,18 +464,21 @@ button:hover {
 /* Services */
 
 .my-services .layout-half {
+    display: flex;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .service-item {
+    width: 100%;
     margin-bottom: 10px;
     padding: 50px;
     background-color: rgba(250, 250, 250, 0.1);
     transition: all 0.5s;
 }
 
-.service-item h4 {
+.service-item h3 {
+    color: #fff;
     transition: all 0.5s;
 }
 
@@ -485,7 +490,7 @@ button:hover {
     background-color: rgba(250, 250, 250, 1);
 }
 
-.service-item:hover h4 {
+.service-item:hover h3 {
     color: #1e1e1e;
 }
 
@@ -666,6 +671,12 @@ section.contact-me {
     opacity: 0.7;
 }
 
+.g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
 @media screen and (max-width: 1680px) {
     .menu {
         left: 5%;
@@ -700,8 +711,8 @@ section.contact-me {
         left: 0%;
     }
 
-    .right-image-post h4,
-    .left-image-post h4 {
+    .right-image-post h3,
+    .left-image-post h3 {
         margin-top: 0px;
     }
 
@@ -783,6 +794,14 @@ section.contact-me {
     }
     .highlight-card {
         padding: 30px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .g-recaptcha {
+        transform: scale(0.8);
+        transform-origin: center;
     }
 }
 

@@ -271,28 +271,29 @@ When we implement P0 #1 and P1 #8, have rough answers for:
 
 **Current dependency inventory (audited August 2026):**
 
-| Dependency | Repository version | Modernization decision |
-|------------|-------------------:|------------------------|
-| jQuery | 3.7.1 | Keep during plugin removal, then replace the remaining calls with native JavaScript and delete it |
-| Bootstrap | 4.2.1 | Remove unused JavaScript early; migrate or replace the CSS grid last |
-| Isotope | 2.0.0 | Remove with the stock portfolio; its bundled file also contains jQuery 2.1.3 |
-| Lightbox | 2.10.0 | Remove with the stock portfolio |
-| Owl Carousel | 2.3.4 | Remove immediately; initialized but no carousel markup exists |
-| FlexSlider | 2.7.1 CSS | Remove immediately; not loaded or used |
-| EmailJS | `emailjs-com@2` | Upgrade to `@emailjs/browser@4` and verify the contact flow |
-| Font Awesome | 4.3.0 | Replace the few used icons with inline SVGs |
+| Dependency | Delivery | Purpose and maintenance policy |
+|------------|----------|--------------------------------|
+| Local HTML, CSS, SVG, and JavaScript | Repository | Primary site implementation; no framework or build step required |
+| Lato | Google Fonts CSS2 API | Site typography; `display=swap` and preconnects limit rendering cost |
+| EmailJS Browser SDK | jsDelivr, major version 4 | Contact delivery; public client identifiers only, with inline failure handling and throttling |
+| reCAPTCHA v2 | Google-hosted script | Contact abuse prevention; the intentionally retained third-party payload is isolated to the form integration |
+| GitHub Pages | Repository deployment | Static hosting for the custom domain |
+
+No package manifest is needed. There are no repository-managed third-party
+packages, and introducing npm solely to mirror two browser CDN integrations
+would add maintenance surface without improving the static deployment.
 
 **Tasks, in dependency order:**
 
-- [ ] Capture desktop and mobile screenshots and manually verify navigation, filtering, lightbox, and contact submission before changing dependencies
-- [ ] Remove unused Owl Carousel and FlexSlider files and initialization code
-- [ ] Remove the unused Bootstrap JavaScript bundle and unreferenced duplicate/source-map assets
-- [ ] Complete P0 #1, then remove Isotope, Lightbox, their styles, and their initialization code
-- [ ] Verify the existing contact form, upgrade EmailJS to the current browser SDK, and retest success, validation, reCAPTCHA, and provider-error paths
-- [ ] Rewrite the remaining navigation, scrolling, and form DOM operations in native JavaScript; then remove jQuery
-- [ ] Replace Font Awesome with accessible inline SVG icons and remove its font/CSS assets
-- [ ] After content and layout stabilize, replace Bootstrap’s grid/container usage with local CSS (preferred) or deliberately migrate to Bootstrap 5
-- [ ] Add a package manifest and automated dependency updates only if third-party packages remain; do not introduce npm solely to manage a dependency-free static page
+- [x] Capture desktop and mobile screenshots and manually verify navigation, filtering, lightbox, and contact submission before changing dependencies
+- [x] Remove unused Owl Carousel and FlexSlider files and initialization code
+- [x] Remove the unused Bootstrap JavaScript bundle and unreferenced duplicate/source-map assets
+- [x] Complete P0 #1, then remove Isotope, Lightbox, their styles, and their initialization code
+- [x] Verify the contact form with mocked success, validation, reCAPTCHA, provider-error, timeout, and repeated-submission paths; retain a real production send as an operator check
+- [x] Rewrite the remaining navigation, scrolling, and form DOM operations in native JavaScript; then remove jQuery
+- [x] Replace Font Awesome with accessible inline SVG icons and remove its font/CSS assets
+- [x] Replace Bootstrap’s grid/container usage with focused local CSS
+- [x] Keep the static site package-free; document the purpose of the two retained browser CDN integrations
 
 **Files:** `index.html`, `assets/js/custom.js`, `assets/js/`, `assets/css/`, `assets/fonts/`, `vendor/`
 
@@ -317,61 +318,61 @@ When we implement P0 #1 and P1 #8, have rough answers for:
 
 Each phase should finish with a desktop/mobile browser check. Preserve the last known-good state so visual or contact-form regressions can be isolated to one phase.
 
-### Phase 0 — Establish the baseline
+### Phase 0 — Establish the baseline (complete)
 
-- [ ] Record desktop and mobile screenshots at representative widths
-- [ ] Verify navigation, responsive menu, portfolio filtering/lightbox, and contact submission
-- [ ] Record any existing defects separately so they are not attributed to modernization work
+- [x] Record desktop and mobile screenshots at representative widths
+- [x] Verify navigation, responsive menu, portfolio filtering/lightbox, and contact submission
+- [x] Record any existing defects separately so they are not attributed to modernization work
 
 **Exit condition:** Current behavior and appearance are documented well enough to detect regressions.
 
-### Phase 1 — Clarify the product and remove dead weight
+### Phase 1 — Clarify the product and remove dead weight (complete)
 
-- [ ] Complete P0 #1: replace “My Work” with resume-focused highlights/proof links
-- [ ] Complete P0 #2 and P1 #5: remove dead actions and replace template copy
-- [ ] Remove Owl Carousel, FlexSlider, unused Bootstrap JavaScript, and unreferenced asset variants
-- [ ] Remove Isotope and Lightbox after their portfolio consumers are gone
+- [x] Complete P0 #1: replace “My Work” with resume-focused highlights/proof links
+- [x] Complete P0 #2 and P1 #5: remove dead actions and replace template copy
+- [x] Remove Owl Carousel, FlexSlider, unused Bootstrap JavaScript, and unreferenced asset variants
+- [x] Remove Isotope and Lightbox after their portfolio consumers are gone
 
 **Exit condition:** The page communicates the intended professional positioning and no removed script or stylesheet is requested by the browser.
 
-### Phase 2 — Strengthen identity, discovery, and accessibility
+### Phase 2 — Strengthen identity, discovery, and accessibility (complete)
 
-- [ ] Complete P0 #4 and P1 #8–9: metadata, navigation labels, and proof links
-- [ ] Complete P1 #6–7: meaningful image alternatives and profile-image optimization
-- [ ] Complete P2 #11–13: typo, favicon, and Open Graph preview
+- [x] Complete P0 #4 and P1 #8–9: metadata, navigation labels, and proof links
+- [x] Complete P1 #6–7: meaningful image alternatives and profile-image optimization
+- [x] Complete P2 #11–13: typo, favicon, and Open Graph preview
 
 **Exit condition:** The page is coherent in search/social previews, keyboard navigation, screen-reader semantics, and responsive layouts.
 
-### Phase 3 — Modernize the contact integration
+### Phase 3 — Modernize the contact integration (complete locally)
 
-- [ ] Confirm EmailJS and reCAPTCHA configuration on the production and test domains
-- [ ] Upgrade EmailJS, add inline status feedback, and prevent duplicate submissions
-- [ ] Test valid submission, invalid email, missing reCAPTCHA, provider failure, and repeated submission
+- [ ] Confirm EmailJS and reCAPTCHA dashboard allowlists on the production and test domains, then perform one real production send
+- [x] Upgrade EmailJS, add inline status feedback, and prevent duplicate submissions
+- [x] Test valid submission, invalid email, missing reCAPTCHA, provider failure, and repeated submission
 
 **Exit condition:** Contact submission works without console errors and every outcome is communicated inline.
 
-### Phase 4 — Remove the legacy JavaScript stack
+### Phase 4 — Remove the legacy JavaScript stack (complete)
 
-- [ ] Convert the remaining jQuery navigation, scrolling, and form interactions to native browser APIs
-- [ ] Remove jQuery and confirm there are no remaining `$`, `jQuery`, or plugin references
-- [ ] Replace Font Awesome with the small set of inline SVG icons actually used
+- [x] Convert the remaining jQuery navigation, scrolling, and form interactions to native browser APIs
+- [x] Remove jQuery and confirm there are no remaining `$`, `jQuery`, or plugin references
+- [x] Replace Font Awesome with the small set of inline SVG icons actually used
 
 **Exit condition:** The page loads no jQuery or icon-font assets and preserves the established baseline behavior.
 
-### Phase 5 — Simplify the layout foundation
+### Phase 5 — Simplify the layout foundation (complete)
 
-- [ ] Inventory the Bootstrap grid and utility classes still used after the content redesign
-- [ ] Replace them with focused local CSS; use a Bootstrap 5 migration only if the retained component surface justifies it
-- [ ] Validate common phone, tablet, laptop, and wide-screen widths
+- [x] Inventory the Bootstrap grid and utility classes still used after the content redesign
+- [x] Replace them with focused local CSS; use a Bootstrap 5 migration only if the retained component surface justifies it
+- [x] Validate common phone, tablet, laptop, and wide-screen widths
 
 **Exit condition:** Bootstrap is removed or intentionally current, with no layout regressions.
 
-### Phase 6 — Final verification and maintenance policy
+### Phase 6 — Final verification and maintenance policy (complete locally)
 
-- [ ] Check for missing local assets, browser console errors, broken links, and accidental secret material
-- [ ] Run an accessibility and performance pass against the production build
-- [ ] Update this document’s checkboxes and dependency inventory to match the shipped state
-- [ ] Introduce dependency tooling only for packages that remain
+- [x] Check for missing local assets, browser console errors, broken links, and accidental secret material
+- [x] Run accessibility and performance passes against production and the final local build
+- [x] Update this document’s checkboxes and dependency inventory to match the shipped state
+- [x] Document why dependency tooling is unnecessary for the package-free static build
 
 **Exit condition:** The deployed site matches the plan, the contact path works, and every remaining dependency has an explicit purpose.
 
