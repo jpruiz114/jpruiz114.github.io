@@ -1,7 +1,12 @@
-(function ($) {
-    let toggle = document.getElementById('menu-toggle');
-    let menu = document.getElementById('menu');
-    let close = document.getElementById('menu-close');
+(function () {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const close = document.getElementById('menu-close');
+    const menuLinks = Array.from(document.querySelectorAll('.main-menu a'));
+    const navigationLinks = Array.from(document.querySelectorAll('.menu a[href^="#"]'));
+    const sections = Array.from(document.querySelectorAll('.section'));
+    let activeSectionId;
+    let scrollUpdatePending = false;
 
     function setMenuOpen (isOpen) {
         menu.classList.toggle('open', isOpen);
@@ -17,12 +22,53 @@
         setMenuOpen(false);
     });
 
-    $('.main-menu a').on('click', function () {
-        if ($(window).width() < 846) {
-            setMenuOpen(false);
+    function setActiveSection () {
+        const scrollPosition = window.scrollY + 80;
+        let activeSection = sections[0];
+
+        sections.forEach(function (section) {
+            if (section.offsetTop <= scrollPosition) {
+                activeSection = section;
+            }
+        });
+
+        const activeId = activeSection.dataset.section;
+        scrollUpdatePending = false;
+        if (activeId === activeSectionId) {
+            return;
         }
+
+        activeSectionId = activeId;
+        menuLinks.forEach(function (link) {
+            link.closest('li').classList.toggle('active', link.hash === `#${activeId}`);
+        });
+    }
+
+    navigationLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            const section = document.querySelector(`[data-section="${link.hash.slice(1)}"]`);
+            if (!section) {
+                return;
+            }
+
+            event.preventDefault();
+            if (window.innerWidth < 846) {
+                setMenuOpen(false);
+            }
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+        });
     });
-})(jQuery);
+
+    window.addEventListener('scroll', function () {
+        if (!scrollUpdatePending) {
+            scrollUpdatePending = true;
+            window.requestAnimationFrame(setActiveSection);
+        }
+    }, { passive: true });
+
+    setActiveSection();
+})();
 
 (function () {
     const form = document.getElementById('contact');
