@@ -3,77 +3,23 @@
     let menu = document.getElementById('menu');
     let close = document.getElementById('menu-close');
 
-    toggle.addEventListener('click', function (e) {
-        if (menu.classList.contains('open')) {
-            menu.classList.remove('open');
-        } else {
-            menu.classList.add('open');
-        }
+    function setMenuOpen (isOpen) {
+        menu.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    }
+
+    toggle.addEventListener('click', function () {
+        setMenuOpen(!menu.classList.contains('open'));
     });
 
-    close.addEventListener('click', function (e) {
-        menu.classList.remove('open');
+    close.addEventListener('click', function () {
+        setMenuOpen(false);
     });
 
-    // Close menu after click on smaller screens
-    $(window).on('resize', function () {
+    $('.main-menu a').on('click', function () {
         if ($(window).width() < 846) {
-            $('.main-menu a').on('click', function () {
-                menu.classList.remove('open');
-            });
+            setMenuOpen(false);
         }
-    });
-
-    $('.owl-carousel').owlCarousel({
-        items: 4,
-        lazyLoad: true,
-        loop: true,
-        dots: true,
-        margin: 30,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
-    });
-
-    $('.hover').mouseleave(function () {
-        $(this).removeClass('hover');
-    });
-
-    $('.isotope-wrapper').each(function () {
-        let $isotope = $('.isotope-box', this);
-        let $filterCheckboxes = $('input[type="radio"]', this);
-
-        let filter = function () {
-            let type = $filterCheckboxes.filter(':checked').data('type') || '*';
-
-            if (type !== '*') {
-                type = '[data-type="' + type + '"]';
-            }
-
-            $isotope.isotope({ filter: type });
-        };
-
-        $isotope.isotope({
-            itemSelector: '.isotope-item',
-            layoutMode: 'masonry'
-        });
-
-        $(this).on('change', filter);
-
-        filter();
-    });
-
-    lightbox.option({
-        resizeDuration: 200,
-        wrapAround: true
     });
 })(jQuery);

@@ -1,0 +1,93 @@
+{
+  "capturedAt": "2026-08-02T00:33:24.369Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "viewports": {
+    "desktop-1440x1000": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout": {
+        "title": "Jean Paul Ruiz - Senior Software Engineer, Cybersecurity Engineer",
+        "documentWidth": 1440,
+        "viewportWidth": 1440,
+        "horizontalOverflow": false,
+        "sections": 4,
+        "portfolioItems": 6,
+        "recaptchaIframes": 1
+      },
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "requestStorageAccess: Permission denied."
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": [],
+      "httpErrors": []
+    },
+    "mobile-390x844": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "layout": {
+        "title": "Jean Paul Ruiz - Senior Software Engineer, Cybersecurity Engineer",
+        "documentWidth": 390,
+        "viewportWidth": 390,
+        "horizontalOverflow": false,
+        "sections": 4,
+        "portfolioItems": 6,
+        "recaptchaIframes": 1
+      },
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Framing 'https://www.google.com/' violates the following report-only Content Security Policy directive: \"frame-ancestors 'self'\". The violation has been logged, but no further action has been taken.\n"
+        },
+        {
+          "type": "error",
+          "text": "requestStorageAccess: Permission denied."
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
+          "error": "net::ERR_BLOCKED_BY_ORB"
+        }
+      ],
+      "httpErrors": []
+    }
+  },
+  "checks": {
+    "desktopNavigation": {
+      "active": true,
+      "scrollY": 1192
+    },
+    "portfolioFilter": {
+      "total": 6,
+      "visible": 2
+    },
+    "lightbox": {
+      "visible": true,
+      "imageNaturalWidth": 570
+    },
+    "contactForm": {
+      "emailType": "text",
+      "invalidEmailAcceptedByNativeValidation": true,
+      "recaptchaPresent": true,
+      "dialogs": [
+        {
+          "type": "alert",
+          "message": "Please complete the reCAPTCHA verification."
+        }
+      ]
+    },
+    "mobileMenu": {
+      "opened": true,
+      "closedAfterNavigation": false,
+      "active": true
+    }
+  }
+}

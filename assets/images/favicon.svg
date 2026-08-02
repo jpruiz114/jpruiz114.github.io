@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Jean Paul Ruiz monogram</title>
+  <rect width="64" height="64" rx="14" fill="#05264c"/>
+  <path d="M18 15h11v29c0 10-6 15-15 15H9V49h4c3 0 5-2 5-6V15Zm17 0h14c10 0 16 6 16 15 0 6-3 11-8 13l9 16H53l-7-14h-1v14H35V15Zm10 10v11h4c4 0 6-2 6-6s-2-5-6-5h-4Z" fill="#fff"/>
+</svg>

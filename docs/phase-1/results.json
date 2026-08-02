@@ -1,0 +1,112 @@
+{
+  "capturedAt": "2026-08-02T00:42:01.373Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "viewports": {
+    "desktop-1440x1000": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "horizontalOverflow": false,
+        "sections": 4,
+        "highlightCards": 3,
+        "proofLinks": 2,
+        "portfolioItems": 0
+      },
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "requestStorageAccess: Permission denied."
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "localRequests": [
+        "",
+        "vendor/bootstrap/css/bootstrap.min.css",
+        "assets/css/fontawesome.css",
+        "assets/css/templatemo-style.css",
+        "assets/images/author-image.png",
+        "assets/images/left-image.jpg",
+        "assets/images/right-image.jpg",
+        "assets/js/jquery.min.js",
+        "assets/js/custom.js",
+        "assets/images/page-bg.jpg",
+        "assets/images/first-white-icon.png",
+        "assets/images/second-white-icon.png",
+        "assets/images/third-white-icon.png",
+        "assets/images/fourth-white-icon.png",
+        "assets/fonts/fontawesome-webfont.woff2?v=4.3.0"
+      ]
+    },
+    "mobile-390x844": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "layout": {
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "sections": 4,
+        "highlightCards": 3,
+        "proofLinks": 2,
+        "portfolioItems": 0
+      },
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "requestStorageAccess: Permission denied."
+        }
+      ],
+      "pageErrors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "localRequests": [
+        "",
+        "vendor/bootstrap/css/bootstrap.min.css",
+        "assets/css/fontawesome.css",
+        "assets/css/templatemo-style.css",
+        "assets/images/author-image.png",
+        "assets/images/left-image.jpg",
+        "assets/images/right-image.jpg",
+        "assets/js/jquery.min.js",
+        "assets/js/custom.js",
+        "assets/images/page-bg.jpg",
+        "assets/images/first-white-icon.png",
+        "assets/images/second-white-icon.png",
+        "assets/images/third-white-icon.png",
+        "assets/images/fourth-white-icon.png",
+        "assets/fonts/fontawesome-webfont.woff2?v=4.3.0"
+      ]
+    }
+  },
+  "checks": {
+    "section2Navigation": {
+      "active": true,
+      "scrollY": 1104
+    },
+    "section3Navigation": {
+      "active": true,
+      "scrollY": 2167
+    },
+    "section4Navigation": {
+      "active": true,
+      "scrollY": 3167
+    },
+    "contactGuard": {
+      "dialogs": [
+        "Please complete the reCAPTCHA verification."
+      ]
+    },
+    "mobileMenu": {
+      "opened": true,
+      "closedAfterNavigation": true,
+      "active": true
+    }
+  }
+}

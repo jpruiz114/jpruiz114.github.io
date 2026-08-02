@@ -1,0 +1,67 @@
+{
+  "capturedAt": "2026-08-02T01:11:53.266Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "viewports": {
+    "desktop-1440x1000": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "horizontalOverflow": false,
+        "imagesWithoutAlt": 0,
+        "unlabeledSocialLinks": 0,
+        "socialLinks": 4,
+        "title": "Jean Paul Ruiz | Senior Software & Cybersecurity Engineer",
+        "description": "Jean Paul Ruiz is a senior software and cybersecurity engineer focused on dependable applications, secure delivery, DevOps automation, and applied machine learning.",
+        "canonical": "https://jeanpaulruizvallejo.com/",
+        "favicon": "http://127.0.0.1:4173/assets/images/favicon.svg",
+        "ogTags": 8
+      },
+      "pageErrors": [],
+      "failedLocalRequests": [],
+      "localHttpErrors": []
+    },
+    "mobile-390x844": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "layout": {
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "imagesWithoutAlt": 0,
+        "unlabeledSocialLinks": 0,
+        "socialLinks": 4,
+        "title": "Jean Paul Ruiz | Senior Software & Cybersecurity Engineer",
+        "description": "Jean Paul Ruiz is a senior software and cybersecurity engineer focused on dependable applications, secure delivery, DevOps automation, and applied machine learning.",
+        "canonical": "https://jeanpaulruizvallejo.com/",
+        "favicon": "http://127.0.0.1:4173/assets/images/favicon.svg",
+        "ogTags": 8
+      },
+      "pageErrors": [],
+      "failedLocalRequests": [],
+      "localHttpErrors": []
+    }
+  },
+  "checks": {
+    "keyboardMenu": {
+      "openedWithKeyboard": true,
+      "expandedWhenOpen": "true",
+      "labelWhenOpen": "Close navigation menu",
+      "closedWithKeyboard": true,
+      "expandedWhenClosed": "false",
+      "labelWhenClosed": "Open navigation menu"
+    },
+    "contactFocus": {
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "outlineColor": "rgb(255, 207, 102)"
+    },
+    "imageSource": "assets/images/author-image.webp",
+    "externalLinksSafe": true
+  }
+}
