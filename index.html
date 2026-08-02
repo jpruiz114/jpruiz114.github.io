@@ -28,12 +28,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css"/>
     <link rel="stylesheet" href="assets/css/templatemo-style.css"/>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init('uhZt1g2VIGuAWTP7m');
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <!-- reCAPTCHA v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -244,34 +239,39 @@
             <div class="row">
                 <div class="right-content">
                     <div class="container">
-                        <form id="contact" onsubmit="submitForm(); return false;">
+                        <form id="contact" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <fieldset>
+                                        <label class="visually-hidden" for="name">Name</label>
                                         <input
                                                 name="name"
                                                 type="text"
                                                 class="form-control"
                                                 id="name"
                                                 placeholder="Your name..."
+                                                autocomplete="name"
                                                 required=""
                                         />
                                     </fieldset>
                                 </div>
                                 <div class="col-md-6">
                                     <fieldset>
+                                        <label class="visually-hidden" for="email">Email address</label>
                                         <input
                                                 name="email"
-                                                type="text"
+                                                type="email"
                                                 class="form-control"
                                                 id="email"
                                                 placeholder="Your email..."
+                                                autocomplete="email"
                                                 required=""
                                         />
                                     </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                     <fieldset>
+                                        <label class="visually-hidden" for="subject">Subject</label>
                                         <input
                                                 name="subject"
                                                 type="text"
@@ -284,6 +284,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <fieldset>
+                                        <label class="visually-hidden" for="message">Message</label>
                         <textarea
                                 name="message"
                                 rows="6"
@@ -296,8 +297,16 @@
                                 </div>
                                 <div class="col-md-12">
                                     <fieldset>
-                                        <div class="g-recaptcha" data-sitekey="6LeN7OErAAAAAE24e87gdnqDtu6YO8de6hAyrfsQ"></div>
+                                        <div
+                                                class="g-recaptcha"
+                                                data-sitekey="6LeN7OErAAAAAE24e87gdnqDtu6YO8de6hAyrfsQ"
+                                                data-expired-callback="onRecaptchaExpired"
+                                                data-error-callback="onRecaptchaError"
+                                        ></div>
                                     </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <p id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
                                 </div>
                                 <div class="col-md-12">
                                     <fieldset>
@@ -366,35 +375,6 @@
         checkSection();
     });
 
-    function submitForm () {
-        // Check if reCAPTCHA is completed
-        var recaptchaResponse = grecaptcha.getResponse();
-        if (recaptchaResponse.length === 0) {
-            alert('Please complete the reCAPTCHA verification.');
-            return false;
-        }
-
-        emailjs.send('service_vc06puj', 'template_x2havzz', {
-            from_name: $('#name').val(),
-            reply_to: $('#email').val(),
-            message_subject: $('#subject').val(),
-            message: $('#message').val()
-        }).then(function (response) {
-            $('#name').val('');
-            $('#email').val('');
-            $('#subject').val('');
-            $('#message').val('');
-            
-            // Reset reCAPTCHA
-            grecaptcha.reset();
-
-            alert('Your message has been sent!');
-        }, function (error) {
-            alert('Error sending message: ' + error);
-            // Reset reCAPTCHA on error
-            grecaptcha.reset();
-        });
-    }
 </script>
 </body>
 </html>

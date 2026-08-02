@@ -1,0 +1,68 @@
+{
+  "capturedAt": "2026-08-02T01:30:32.297Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "scenarios": {
+    "invalidEmail": {
+      "status": "Please enter a valid email address.",
+      "sends": 0
+    },
+    "slowProvider": {
+      "status": "Your message is still sending. Please keep this page open.",
+      "statusKind": "pending",
+      "sends": 1,
+      "buttonDisabled": true,
+      "captchaResets": 0
+    },
+    "missingCaptcha": {
+      "status": "Please complete the reCAPTCHA verification.",
+      "sends": 0
+    },
+    "successAndDuplicate": {
+      "status": "Your message has been sent. Thank you!",
+      "statusKind": "success",
+      "sends": 1,
+      "disabledDuringSend": true,
+      "disabledAfterSend": false,
+      "captchaResets": 1,
+      "sentCaptcha": "valid-token",
+      "nameAfterSend": ""
+    },
+    "emailJsUnavailable": {
+      "status": "The contact service is unavailable. Please try again later.",
+      "statusKind": "error",
+      "buttonEnabled": true
+    },
+    "recaptchaUnavailable": {
+      "status": "The reCAPTCHA verification is unavailable. Please try again.",
+      "statusKind": "error",
+      "sends": 0
+    },
+    "recaptchaExpired": "The reCAPTCHA verification expired. Please complete it again.",
+    "recaptchaError": "The reCAPTCHA verification could not load. Please try again.",
+    "providerFailure": {
+      "status": "Your message could not be sent. Please try again.",
+      "statusKind": "error",
+      "sends": 1,
+      "buttonEnabled": true,
+      "captchaResets": 1
+    }
+  },
+  "viewports": {
+    "desktop-1440x1000": {
+      "viewportWidth": 1440,
+      "documentWidth": 1440,
+      "horizontalOverflow": false,
+      "statusLive": "polite",
+      "emailType": "email",
+      "emailJsVersion": "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    },
+    "mobile-390x844": {
+      "viewportWidth": 390,
+      "documentWidth": 390,
+      "horizontalOverflow": false,
+      "statusLive": "polite",
+      "emailType": "email",
+      "emailJsVersion": "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    }
+  }
+}
